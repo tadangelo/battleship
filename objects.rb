@@ -23,6 +23,8 @@ def player_ship_grid
         row.each do |v|
             if v
                 string += ' S'
+            elsif v == "H"
+                string += ' *'
             else
                 string += ' .'
             end
@@ -31,7 +33,6 @@ def player_ship_grid
         puts key.to_s + ' ' + string
     end
 
-    
 end
 
 @carrier = 5
@@ -40,45 +41,115 @@ end
 @patrol = 2
 @sub = 3
 
-def place_ship
+def place_carrier
+    puts "Where would you like to place your carrier (Pick 5 spaces, 1 at a time)?"
+    5.times do
+        ship1 = gets.chomp!.strip.downcase
+        s_row = ship1[0]
+        col = (ship1[1]).to_i
 
-    puts "Where would you like to place your ship?"
-    ship1 = gets.chomp!.strip.downcase
-    s_row = ship1[0]
-    col = (ship1[1]).to_i
-
-    puts @board[:"#{s_row}"][col]
-
-    puts ""
+        @board[:"#{s_row}"][col] = true
+    end
+    place_battleship
 end
 
+def place_battleship
+    puts "Where would you like to place your battleship (Pick 4 spaces, 1 at a time)?"
+    4.times do
+        ship1 = gets.chomp!.strip.downcase
+        s_row = ship1[0]
+        col = (ship1[1]).to_i
 
-@carrier
-def place_carrier (5)
+        @board[:"#{s_row}"][col] = true
+    end
+    place_cruiser
+end
 
-    puts "Which direction would you like to place your carrier?\n
-    'l' for left, 'r' for right 'u' for up and 'd' for down"
+def place_cruiser
+    puts "Where would you like to place your Cruiser (Pick 3 spaces, 1 at a time)?"
+    3.times do
+        ship1 = gets.chomp!.strip.downcase
+        s_row = ship1[0]
+        col = (ship1[1]).to_i
 
-    while direction = gets.chomp!.downcase
-        case direction
-            when 'l'
-                puts "Goes left"
-                break
-            when 'r'
-                puts "goes right"
-                break
-            when 'u'
-                puts "goes up"
-                break
-            when 'd'
-                puts "goes down"
-                break
-            else
-                puts "Invalid input please enter in 'l' 'r' 'd' or 'u'"
+        @board[:"#{s_row}"][col] = true
+    end
+    place_sub
+end
+
+def place_sub
+    puts "Where would you like to place your sub (Pick 3 spaces, 1 at a time)?"
+    3.times do
+        ship1 = gets.chomp!.strip.downcase
+        s_row = ship1[0]
+        col = (ship1[1]).to_i
+
+        @board[:"#{s_row}"][col] = true
+    end
+    place_patrol
+end
+
+def place_patrol
+    puts "Where would you like to place your patrol (Pick 2 spaces, 1 at a time)?"
+    2.times do
+        ship1 = gets.chomp!.strip.downcase
+        s_row = ship1[0]
+        col = (ship1[1]).to_i
+
+        @board[:"#{s_row}"][col] = true
+    end
+    player_ship_grid
+    attack
+end
+
+def attack
+    @hit = 0
+
+    while @hit <= 16 do
+            puts "Where would you like to attack?"
+            ship1 = gets.chomp!.strip.downcase
+            s_row = ship1[0]
+            col = (ship1[1]).to_i
+
+        if @cpuboard[:"#{s_row}"][col] == true
+            puts "You got a hit!"
+            @hit += 1
+            @board[:"#{s_row}"][col] = "H"
+        elsif @board[:"#{s_row}"][col] == "H"
+            puts "Opps! You already guessed there!"
+        else
+            puts "Sorry but you hit the ocean!"
         end
     end
+
+    puts "You won the game!!"
+
 end
 
+# def place_carrier
+
+#     puts "Which direction would you like to place your carrier?\n
+#     'l' for left, 'r' for right 'u' for up and 'd' for down"
+
+#     while direction = gets.chomp!.downcase
+#         case direction
+#             when 'l'
+#                 puts "Goes left"
+#                 break
+#             when 'r'
+#                 puts "goes right"
+#                 break
+#             when 'u'
+#                 puts "goes up"
+#                 break
+#             when 'd'
+#                 puts "goes down"
+#                 break
+#             else
+#                 puts "Invalid input please enter in 'l' 'r' 'd' or 'u'"
+#         end
+#     end
+# end
 # SUDO CODE 
 # Call the ship and pass the value of ship
 # DONE # Ask which direction they would like to go. 
