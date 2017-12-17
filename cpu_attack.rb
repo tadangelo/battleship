@@ -26,5 +26,5 @@
             puts "The computer chose #{@cpu_attack} and hit the ocean!"
           end
           return
-      end
+    end
   end
