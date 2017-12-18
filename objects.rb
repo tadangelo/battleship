@@ -2,6 +2,7 @@ require 'pry'
 require_relative 'cpu_board'
 require_relative 'cpu_attack'
 require_relative 'player_attack'
+require_relative 'game_rules'
 
 @board = {
   a: [false, false, false, false, false, false, false, false, false, false],
@@ -17,6 +18,8 @@ require_relative 'player_attack'
 }
 
 # binding.pry
+
+start
 
 def player_ship_grid
   puts '   1 2 3 4 5 6 7 8 9 10'
