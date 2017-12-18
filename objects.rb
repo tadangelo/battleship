@@ -3,6 +3,7 @@ require_relative 'cpu_board'
 require_relative 'cpu_attack'
 require_relative 'player_attack'
 require_relative 'game_rules'
+require_relative 'battleship'
 
 @board = {
   a: [false, false, false, false, false, false, false, false, false, false],
@@ -138,6 +139,7 @@ def attack
     player_attack
     computer_attack
   end
+  win_or_lose
 end
 
 #
