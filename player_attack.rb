@@ -7,8 +7,18 @@ def player_attack
     puts "Where would you like to attack?"
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
     if @cpu_board[:"#{s_row}"][col] == true
+      puts "
+      _.-._
+      ({  ` )
+       ` |''   *BOOM!*
+        \_/
+ .(      |      ),
+`  -----' `-----  '
+        "
+
+      sleep 2
       puts "You got a hit!"
       @hit += 1
       @cpu_board[:"#{s_row}"][col] = "H"
