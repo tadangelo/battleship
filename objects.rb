@@ -71,7 +71,7 @@ def place_carrier
   5.times do
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
 
     @board[:"#{s_row}"][col] = true
     player_ship_grid
@@ -84,7 +84,7 @@ def place_battleship
   4.times do
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
 
     @board[:"#{s_row}"][col] = true
     player_ship_grid
@@ -97,7 +97,7 @@ def place_cruiser
   3.times do
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
 
     @board[:"#{s_row}"][col] = true
     player_ship_grid
@@ -110,7 +110,7 @@ def place_sub
   3.times do
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
 
     @board[:"#{s_row}"][col] = true
     player_ship_grid
@@ -123,7 +123,7 @@ def place_patrol
   2.times do
     ship1 = gets.chomp!.strip.downcase
     s_row = ship1[0]
-    col = (ship1[1]).to_i
+    col = (ship1[1]).to_i - 1
 
     @board[:"#{s_row}"][col] = true
   end
