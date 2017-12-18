@@ -1,4 +1,7 @@
 require 'pry'
+require_relative 'cpu_board'
+require_relative 'cpu_attack'
+require_relative 'player_attack'
 
 @board = {
 	a: [false, false, false, false, false, false, false, false, false, false],
@@ -105,26 +108,31 @@ end
 def attack
     @hit = 0
 
-    while @hit <= 16 do
-            puts "Where would you like to attack?"
-            ship1 = gets.chomp!.strip.downcase
-            s_row = ship1[0]
-            col = (ship1[1]).to_i
-
-        if @cpuboard[:"#{s_row}"][col] == true
-            puts "You got a hit!"
-            @hit += 1
-            @board[:"#{s_row}"][col] = "H"
-        elsif @board[:"#{s_row}"][col] == "H"
-            puts "Opps! You already guessed there!"
-        else
-            puts "Sorry but you hit the ocean!"
-        end
+     while @hit <= 16 do
+        player_attack
+        computer_attack
     end
-
-    puts "You won the game!!"
-
 end
+    #   
+    #      puts "Where would you like to attack?"
+    #         ship1 = gets.chomp!.strip.downcase
+    #         s_row = ship1[0]
+    #         col = (ship1[1]).to_i
+
+    #     if @cpu_board[:"#{s_row}"][col] == true
+    #         puts "You got a hit!"
+    #         @hit += 1
+    #         @cpu_board[:"#{s_row}"][col] = "H"
+    #     elsif @cpu_board[:"#{s_row}"][col] == "H"
+    #         puts "Opps! You already guessed there!"
+    #     else
+    #         puts "Sorry but you hit the ocean!"
+    #     end
+    # end
+
+    # puts "You won the game!!"
+
+# end
 
 # def place_carrier
 
