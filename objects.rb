@@ -37,6 +37,25 @@ def player_ship_grid
   end
 end
 
+def player_attack_grid
+  puts '   1 2 3 4 5 6 7 8 9 10'
+
+  @cpu_board.each do |key, row|
+    string = ''
+    row.each do |v|
+      if v == "H"
+        string += ' *'
+      elsif v == "w"
+        string += ' ~'
+      else
+        string += ' .'
+      end
+    end
+
+    puts key.to_s + ' ' + string
+  end
+end
+
 @carrier = 5
 @battleship = 4
 @cruiser = 3
@@ -52,6 +71,7 @@ def place_carrier
     col = (ship1[1]).to_i
 
     @board[:"#{s_row}"][col] = true
+    player_ship_grid
   end
   place_battleship
 end
@@ -64,6 +84,7 @@ def place_battleship
     col = (ship1[1]).to_i
 
     @board[:"#{s_row}"][col] = true
+    player_ship_grid
   end
   place_cruiser
 end
@@ -76,6 +97,7 @@ def place_cruiser
     col = (ship1[1]).to_i
 
     @board[:"#{s_row}"][col] = true
+    player_ship_grid
   end
   place_sub
 end
@@ -88,6 +110,7 @@ def place_sub
     col = (ship1[1]).to_i
 
     @board[:"#{s_row}"][col] = true
+    player_ship_grid
   end
   place_patrol
 end
