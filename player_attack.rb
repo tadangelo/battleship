@@ -29,6 +29,7 @@ def player_attack
             else
               @cpu_board[:"#{x}"][y] == false
               @cpu_board[:"#{x}"][y] = "w"
+              sleep 1
               puts "Sorry but you hit the ocean!"
             end
     else
