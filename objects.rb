@@ -318,12 +318,12 @@ end
 
 
 
-  while @hit <= 16 || @cpu_hit <= 16
-    player_attack
-    computer_attack
-  end
-  win_or_lose
-end
+  # while @hit <= 16 || @cpu_hit <= 16
+  #   player_attack
+  #   computer_attack
+  # end
+  # win_or_lose
+
 
 def attack
   @hit = 0
@@ -344,4 +344,6 @@ def attack
     end
   end
 end
+
+place_carrier
 
