@@ -27,7 +27,11 @@ def attack
       puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
       break
     else
-      puts "Player has #{@hit} hits, the computer has #{@cpu_hit} hits"
+      puts "
+      -------------------------------------------------
+      | Player has #{@hit} hits, the computer has #{@cpu_hit} hits |
+       -------------------------------------------------
+      "
     end
   end
 end

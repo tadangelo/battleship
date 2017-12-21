@@ -11,7 +11,7 @@ def player_attack
       y = y.to_i - 1
             if @cpu_board[:"#{x}"][y] == true
               puts "
-              _.-._
+               _.-._
               ({  ` )
               ` |''   *BOOM!*
                 \_/

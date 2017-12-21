@@ -236,33 +236,6 @@ def place_patrol
   attack
 end
 
-<<<<<<< HEAD
-=======
-def attack
-  @hit = 0
-  @cpu_hit = 0
-
-  while @hit <= 16 || @cpu_hit <= 16
-    player_attack
-    computer_attack
-
-    if @hit == 17
-      puts "Player wins!!"
-      break
-    elsif @cpu_hit == 17
-      puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
-      break
-    else
-      sleep 1
-      puts "
-        -------------------------------------------------
-       | Player has #{@hit} hits, the computer has #{@cpu_hit} hits |
-        -------------------------------------------------
-        "
-    end
-  end
-end
->>>>>>> 0a2cba57d8eeaa963865440b964ae394692db12a
 
 
 
