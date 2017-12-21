@@ -43,7 +43,11 @@ def computer_attack_grid
 
   puts "================================"
 
-  puts "THE COMPUTER HAS ATTACKED!!"
+  puts "
+   =======================
+  | Computer Attack Board |
+   =======================
+  "
 sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10   '
   @cpu_attack_board = @board
@@ -67,7 +71,11 @@ end
 
 def player_attack_grid
 
-  puts "YOU HAVE ATTACKED!!"
+  puts "
+   ======================
+  | Player Attack Board |
+   ======================
+  "
 sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10'
 
@@ -85,7 +93,7 @@ sleep 1
 
     puts key.to_s + ' ' + string
   end
-  puts "PRESS ANY KEY TO CONTINUE"
+  puts "PRESS ENTER TO CONTINUE"
   gets
 end
 
