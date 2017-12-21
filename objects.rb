@@ -41,8 +41,11 @@ def player_ship_grid
 end
 
 def computer_attack_grid
-  puts "THE COMPUTER HAS ATTACKED!!"
 
+  puts "================================"
+
+  puts "THE COMPUTER HAS ATTACKED!!"
+sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10   '
   @cpu_attack_board = @board
   @cpu_attack_board.each do |key, row|
@@ -66,7 +69,7 @@ end
 def player_attack_grid
 
   puts "YOU HAVE ATTACKED!!"
-
+sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10'
 
   @cpu_board.each do |key, row|
@@ -83,6 +86,8 @@ def player_attack_grid
 
     puts key.to_s + ' ' + string
   end
+  puts "PRESS ANY KEY TO CONTINUE"
+  gets
 end
 
 @carrier = 0
@@ -222,7 +227,12 @@ def attack
       puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
       break
     else
-      puts "Player has #{@hit} hits, the computer has #{@cpu_hit} hits"
+      sleep 1
+      puts "
+        -------------------------------------------------
+       | Player has #{@hit} hits, the computer has #{@cpu_hit} hits |
+        -------------------------------------------------
+        "
     end
   end
 end
