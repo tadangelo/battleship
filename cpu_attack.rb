@@ -38,5 +38,4 @@ def computer_attack
     computer_attack_grid
     return
   end
-  
 end
