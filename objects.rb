@@ -46,7 +46,11 @@ def computer_attack_grid
 
   puts "================================"
 
-  puts "THE COMPUTER HAS ATTACKED!!"
+  puts "
+   =======================
+  | Computer Attack Board |
+   =======================
+  "
 sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10   '
   @cpu_attack_board = @board
@@ -70,8 +74,14 @@ end
 
 def player_attack_grid
 
+
   puts "YOU HAVE ATTACKED!!"
 
+  puts "
+   ======================
+  | Player Attack Board |
+   ======================
+  "
 sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10'
 
@@ -89,7 +99,7 @@ sleep 1
 
     puts key.to_s + ' ' + string
   end
-  puts "PRESS ANY KEY TO CONTINUE"
+  puts "PRESS ENTER TO CONTINUE"
   gets
 end
 
@@ -167,7 +177,7 @@ end
 
 def place_carrier
   
-  puts "Place your carrier 5 spaces"
+  puts "Where would you like to place your Carrier (Pick 5 spaces, 1 at a time)?"
  
   while @carrier <= 4
       @ship_carrier = gets.chomp!.strip.downcase
@@ -196,7 +206,7 @@ end
 
 def place_battleship
   
-  puts "Place your battleship 4 spots"
+  puts "Where would you like to place your Battleship (Pick 4 spaces, 1 at a time)?"
  
   while @battle <= 3
       @ship_battleship = gets.chomp!.strip.downcase
