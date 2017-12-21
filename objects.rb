@@ -4,7 +4,6 @@ require_relative 'cpu_attack'
 require_relative 'player_attack'
 require_relative 'game_rules'
 
-
 @board = {
   a: [false, false, false, false, false, false, false, false, false, false],
   b: [false, false, false, false, false, false, false, false, false, false],
@@ -41,8 +40,6 @@ def player_ship_grid
 end
 
 def computer_attack_grid
-  puts "THE COMPUTER HAS ATTACKED!!"
-
 
   puts "================================"
 
@@ -74,9 +71,6 @@ end
 
 def player_attack_grid
 
-
-  puts "YOU HAVE ATTACKED!!"
-
   puts "
    =====================
   | Player Attack Board |
@@ -103,77 +97,11 @@ sleep 1
   gets
 end
 
-
-# def player_ship_grid
-#   puts '   1 2 3 4 5 6 7 8 9 10   '
-
-#   @board.each do |key, row|
-#     string = ''
-#     row.each do |v|
-#       if v
-#         string += ' S'
-#       elsif v == "H"
-#         string += ' *'
-#       else
-#         string += ' .'
-#       end
-#     end
-
-#     puts key.to_s + ' ' + string
-#   end
-# end
-
-# def computer_attack_grid
-#   puts '   1 2 3 4 5 6 7 8 9 10   '
-#   @board.each do |key, row|
-#     string = ''
-#     row.each do |v|
-#       if v 
-#         string += ' S'
-#       elsif v == "H"
-#         string += ' *'
-#       elsif v == "w"
-#         string += ' ~'
-#       else
-#         string += ' .'
-#       end
-#     end
-
-#     puts key.to_s + ' ' + string
-#   end
-# end
-
-# def player_attack_grid
-#   puts '   1 2 3 4 5 6 7 8 9 10'
-
-#   @cpu_board.each do |key, row|
-#     string = ''
-#     row.each do |v|
-#       if v == "H"
-#         string += ' *'
-#       elsif v == "w"
-#         string += ' ~'
-#       else
-#         string += ' .'
-#       end
-#     end
-
-#     puts key.to_s + ' ' + string
-#   end
-# end
-
-@carrier = 5
-@battleship = 4
-@cruiser = 3
-@patrol = 2
-@sub = 3
-
 @carrier = 0
 @battle = 0
 @cruiser = 0
 @patrol = 0
 @sub = 0
-
 
 def place_carrier
   
@@ -318,30 +246,4 @@ end
 
 
 
-  while @hit <= 16 || @cpu_hit <= 16
-    player_attack
-    computer_attack
-  end
-  win_or_lose
-end
-
-def attack
-  @hit = 0
-  @cpu_hit = 0
-
-  while @hit <= 16 || @cpu_hit <= 16
-    player_attack
-    computer_attack
-    
-    if @hit == 17
-        puts "You won!!!"
-      break
-    elsif @cpu_hit == 17
-        puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
-      break
-    else
-        puts "You have #{@hit} hits, the computer has #{@cpu_hit} hits"
-    end
-  end
-end
 
