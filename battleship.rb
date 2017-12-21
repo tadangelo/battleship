@@ -27,11 +27,18 @@ def attack
       puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
       break
     else
+      sleep 1
       puts "
-      -------------------------------------------------
+      
+      
+      calculating current results"
+      sleep 1.5
+      puts "
+       --------------------------------------------
       | Player has #{@hit} hits, the computer has #{@cpu_hit} hits |
-       -------------------------------------------------
+       --------------------------------------------
       "
+      sleep 2
     end
   end
 end

@@ -33,6 +33,7 @@ def computer_attack
       @board[:"#{s_row}"][col] == false
       @board[:"#{s_row}"][col] = "w"
       puts "The computer chose #{@cpu_attack} and hit the ocean!"
+      sleep 1
       # binding.pry
     end
     computer_attack_grid

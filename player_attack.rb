@@ -4,21 +4,6 @@ def player_attack
 
   while @hit <= 16
     puts "Where would you like to attack?"
-
-    ship1 = gets.chomp!.strip.downcase
-    s_row = ship1[0]
-    col = (ship1[1..2]).to_i - 1
-    if @cpu_board[:"#{s_row}"][col] == true
-#       puts "
-#        _.-._
-#       ({  ` )
-#        ` |''   *BOOM!*
-#         \_/
-#  .       |       ,
-# `  -----' `-----  '
-#         "
-=======
-
     fire = gets.chomp!.strip.downcase
     x = fire[0]
     y = (fire[1..2])
@@ -45,7 +30,10 @@ def player_attack
               @cpu_board[:"#{x}"][y] == false
               @cpu_board[:"#{x}"][y] = "w"
               sleep 1
+              puts "..."
+              sleep 1
               puts "Sorry but you hit the ocean!"
+              sleep 1
             end
     else
       puts "Invalid input! Guess again!"
@@ -54,6 +42,5 @@ def player_attack
     player_attack_grid
     # binding.pry
     return
-  end
   end
 end
