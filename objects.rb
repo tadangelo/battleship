@@ -78,9 +78,9 @@ def player_attack_grid
   puts "YOU HAVE ATTACKED!!"
 
   puts "
-   ======================
+   =====================
   | Player Attack Board |
-   ======================
+   =====================
   "
 sleep 1
   puts '   1 2 3 4 5 6 7 8 9 10'
