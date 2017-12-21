@@ -19,7 +19,6 @@ require_relative 'game_rules'
 
 # binding.pry
 
-start
 
 def player_ship_grid
   puts '   1 2 3 4 5 6 7 8 9 10'
@@ -101,15 +100,20 @@ def place_carrier
       @ship_carrier = gets.chomp!.strip.downcase
       x = @ship_carrier[0]
       y = @ship_carrier[1..2]
-        if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
-          @carrier += 1
-          puts "Choose #{5 - @carrier} more location(s)"
-          y = y.to_i - 1
-          @board[:"#{x}"][y] = true
-          player_ship_grid
+        if @board[:"#{x}"][y.to_i - 1] == false
+          if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
+            @carrier += 1
+            puts "Choose #{5 - @carrier} more location(s)"
+            y = y.to_i - 1
+            @board[:"#{x}"][y] = true
+            player_ship_grid
+          else
+            puts "Try again!"
+            puts "Choose #{5 - @carrier} more location(s)" 
+            place_carrier
+          end
         else
-          puts "Try again!"
-          puts "Choose #{5 - @carrier} more location(s)" 
+          puts "You already have a ship there! Place your ship somewhere else"
           place_carrier
         end
   end
@@ -125,15 +129,20 @@ def place_battleship
       @ship_battleship = gets.chomp!.strip.downcase
       x = @ship_battleship[0]
       y = @ship_battleship[1..2]
-        if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
-          @battle += 1
-          puts "Choose #{4 - @battle} more locations"
-          y = y.to_i - 1
-          @board[:"#{x}"][y] = true
-          player_ship_grid
+        if @board[:"#{x}"][y.to_i - 1] == false
+          if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
+            @battle += 1
+            puts "Choose #{4 - @battle} more locations"
+            y = y.to_i - 1
+            @board[:"#{x}"][y] = true
+            player_ship_grid
+          else
+            puts "Try again!"
+            puts "Choose #{4 - @battle} more locations" 
+            place_battleship
+          end
         else
-          puts "Try again!"
-          puts "Choose #{4 - @battle} more locations" 
+          puts "You already have a ship there! Place your ship somewhere else"
           place_battleship
         end
   end
@@ -148,15 +157,20 @@ def place_cruiser
       @ship_cruiser = gets.chomp!.strip.downcase
       x = @ship_cruiser[0]
       y = @ship_cruiser[1..2]
-        if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
-          @cruiser += 1
-          puts "Choose #{3 - @cruiser} more locations"
-          y = y.to_i - 1
-          @board[:"#{x}"][y] = true
-          player_ship_grid
+        if @board[:"#{x}"][y.to_i - 1] == false
+          if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
+            @cruiser += 1
+            puts "Choose #{3 - @cruiser} more locations"
+            y = y.to_i - 1
+            @board[:"#{x}"][y] = true
+            player_ship_grid
+          else
+            puts "Try again!"
+            puts "Choose #{3 - @cruiser} more locations" 
+            place_cruiser
+          end
         else
-          puts "Try again!"
-          puts "Choose #{3 - @cruiser} more locations" 
+          puts "You already have a ship there! Place your ship somewhere else"
           place_cruiser
         end
   end
@@ -171,15 +185,20 @@ def place_sub
       @ship_sub = gets.chomp!.strip.downcase
       x = @ship_sub[0]
       y = @ship_sub[1..2]
-        if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
-          @sub += 1
-          puts "Choose #{3 - @sub} more locations"
-          y = y.to_i - 1
-          @board[:"#{x}"][y] = true
-          player_ship_grid
+        if @board[:"#{x}"][y.to_i - 1] == false
+          if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
+            @sub += 1
+            puts "Choose #{3 - @sub} more locations"
+            y = y.to_i - 1
+            @board[:"#{x}"][y] = true
+            player_ship_grid
+          else
+            puts "Try again!"
+            puts "Choose #{3 - @sub} more locations" 
+            place_sub
+          end
         else
-          puts "Try again!"
-          puts "Choose #{3 - @sub} more locations" 
+          puts "You already have a ship there! Place your ship somewhere else"
           place_sub
         end
   end
@@ -194,39 +213,26 @@ def place_patrol
       @ship_patrol = gets.chomp!.strip.downcase
       x = @ship_patrol[0]
       y = @ship_patrol[1..2]
-        if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
-          @patrol += 1
-          puts "Choose #{2 - @patrol} more locations"
-          y = y.to_i - 1
-          @board[:"#{x}"][y] = true
-          player_ship_grid
+        if @board[:"#{x}"][y.to_i - 1] == false
+          if (('a'..'j').to_a.include?x) && (('1'..'10').to_a.include?y)
+            @patrol += 1
+            puts "Choose #{2 - @patrol} more locations"
+            y = y.to_i - 1
+            @board[:"#{x}"][y] = true
+            player_ship_grid
+          else
+            puts "Try again!"
+            puts "Choose #{2 - @patrol} more locations" 
+            place_patrol
+          end
         else
-          puts "Try again!"
-          puts "Choose #{2 - @patrol} more locations" 
+          puts "You already have a ship there! Place your ship somewhere else"
           place_patrol
         end
   end
   attack
 end
 
-def attack
-  @hit = 0
-  @cpu_hit = 0
 
-  while @hit <= 16 || @cpu_hit <= 16
-    player_attack
-    computer_attack
 
-    if @hit == 17
-      puts "Player wins!!"
-      break
-    elsif @cpu_hit == 17
-      puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
-      break
-    else
-      puts "Player has #{@hit} hits, the computer has #{@cpu_hit} hits"
-    end
-  end
-end
 
-place_carrier
