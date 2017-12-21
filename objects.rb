@@ -40,7 +40,33 @@ def player_ship_grid
   end
 end
 
+def computer_attack_grid
+  puts "THE COMPUTER HAS ATTACKED!!"
+
+  puts '   1 2 3 4 5 6 7 8 9 10   '
+  @cpu_attack_board = @board
+  @cpu_attack_board.each do |key, row|
+    string = ''
+    row.each do |v|
+    if v  == true
+      string += ' S'
+    elsif v == "H"
+        string += ' *'
+    elsif v == "w"
+        string += ' ~'
+    else v == false
+      string += ' .'
+    end
+  end
+    puts key.to_s + ' ' + string
+  end
+end
+
+
 def player_attack_grid
+
+  puts "YOU HAVE ATTACKED!!"
+
   puts '   1 2 3 4 5 6 7 8 9 10'
 
   @cpu_board.each do |key, row|
@@ -59,11 +85,13 @@ def player_attack_grid
   end
 end
 
+
 @carrier = 0
 @battle = 0
 @cruiser = 0
 @patrol = 0
 @sub = 0
+
 
 @z = 0
 def place_carrier
@@ -159,16 +187,15 @@ def attack
   while @hit <= 16 || @cpu_hit <= 16
     player_attack
     computer_attack
-    
+
     if @hit == 17
-        puts "Player wins!!"
-        break
+      puts "Player wins!!"
+      break
     elsif @cpu_hit == 17
-        puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
-        break
+      puts "Computer kicked your butt, you must really suck because it used ZERO logic just random guessing!"
+      break
     else
-        puts "Player has #{@hit} hits, the computer has #{@cpu_hit} hits"
-        
+      puts "Player has #{@hit} hits, the computer has #{@cpu_hit} hits"
     end
   end
 end
