@@ -97,7 +97,7 @@ end
 
 def place_carrier
   
-  puts "Place your carrier 5 spaces"
+  puts "Where would you like to place your Carrier (Pick 5 spaces, 1 at a time)?"
  
   while @carrier <= 4
       @ship_carrier = gets.chomp!.strip.downcase
@@ -126,7 +126,7 @@ end
 
 def place_battleship
   
-  puts "Place your battleship 4 spots"
+  puts "Where would you like to place your Battleship (Pick 4 spaces, 1 at a time)?"
  
   while @battle <= 3
       @ship_battleship = gets.chomp!.strip.downcase
