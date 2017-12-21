@@ -85,36 +85,56 @@ def player_attack_grid
   end
 end
 
+@carrier = 0
+@battleship = 0
+@cruiser = 0
+@patrol = 0
+@sub = 0
 
-@carrier = 5
-@battleship = 4
-@cruiser = 3
-@patrol = 2
-@sub = 3
-
+@z = 0
 def place_carrier
-  player_ship_grid
-  puts "Where would you like to place your carrier (Pick 5 spaces, 1 at a time)?"
-  5.times do
-    ship1 = gets.chomp!.strip.downcase
-    s_row = ship1[0]
-    col = (ship1[1..2]).to_i - 1
-
-    @board[:"#{s_row}"][col] = true
-    player_ship_grid
+  
+  puts "Place your carrier 5 spaces"
+ 
+  while @z <= 4
+      @ship1 = gets.chomp!.strip.downcase
+      s_row = @ship1[0]
+      col = @ship1[1..2]
+        if (('a'..'j').to_a.include?s_row) && (('1'..'10').to_a.include?col)
+          @z += 1
+          puts "Choose #{5 - @z} more location(s)"
+          col = col.to_i - 1
+          @board[:"#{s_row}"][col] = true
+          player_ship_grid
+        else
+          puts "Try again!"
+          puts "Choose #{5 - @z} more location(s)" 
+          place_carrier
+        end
   end
   place_battleship
 end
 
+@battle = 0
 def place_battleship
-  puts "Where would you like to place your battleship (Pick 4 spaces, 1 at a time)?"
-  4.times do
-    ship1 = gets.chomp!.strip.downcase
-    s_row = ship1[0]
-    col = (ship1[1..2]).to_i - 1
-
-    @board[:"#{s_row}"][col] = true
-    player_ship_grid
+  
+  puts "Place your battleship 4 spots"
+ 
+  while @battle <= 3
+      @ship1 = gets.chomp!.strip.downcase
+      s_row = @ship1[0]
+      col = @ship1[1..2]
+        if (('a'..'j').to_a.include?s_row) && (('1'..'10').to_a.include?col)
+          @battle += 1
+          puts "Choose #{5 - @battle} more locations"
+          col = col.to_i - 1
+          @board[:"#{s_row}"][col] = true
+          player_ship_grid
+        else
+          puts "Try again!"
+          puts "Choose #{4 - @battle} more locations" 
+          place_battleship
+        end
   end
   place_cruiser
 end
