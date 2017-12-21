@@ -9,11 +9,11 @@ def player_attack
     col = (ship1[1..2]).to_i - 1
     if @cpu_board[:"#{s_row}"][col] == true
       puts "
-      _.-._
+       _.-._
       ({  ` )
        ` |''   *BOOM!*
         \_/
- .(      |      ),
+ .       |       ,
 `  -----' `-----  '
         "
 

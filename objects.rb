@@ -41,7 +41,33 @@ def player_ship_grid
   end
 end
 
+def computer_attack_grid
+  puts "THE COMPUTER HAS ATTACKED!!"
+
+  puts '   1 2 3 4 5 6 7 8 9 10   '
+  @cpu_attack_board = @board
+  @cpu_attack_board.each do |key, row|
+    string = ''
+    row.each do |v|
+    if v  == true
+      string += ' S'
+    elsif v == "H"
+        string += ' *'
+    elsif v == "w"
+        string += ' ~'
+    else v == false
+      string += ' .'
+    end
+  end
+    puts key.to_s + ' ' + string
+  end
+end
+
+
 def player_attack_grid
+
+  puts "YOU HAVE ATTACKED!!"
+
   puts '   1 2 3 4 5 6 7 8 9 10'
 
   @cpu_board.each do |key, row|
@@ -59,6 +85,64 @@ def player_attack_grid
     puts key.to_s + ' ' + string
   end
 end
+
+# def player_ship_grid
+#   puts '   1 2 3 4 5 6 7 8 9 10   '
+
+#   @board.each do |key, row|
+#     string = ''
+#     row.each do |v|
+#       if v
+#         string += ' S'
+#       elsif v == "H"
+#         string += ' *'
+#       else
+#         string += ' .'
+#       end
+#     end
+
+#     puts key.to_s + ' ' + string
+#   end
+# end
+
+# def computer_attack_grid
+#   puts '   1 2 3 4 5 6 7 8 9 10   '
+#   @board.each do |key, row|
+#     string = ''
+#     row.each do |v|
+#       if v 
+#         string += ' S'
+#       elsif v == "H"
+#         string += ' *'
+#       elsif v == "w"
+#         string += ' ~'
+#       else
+#         string += ' .'
+#       end
+#     end
+
+#     puts key.to_s + ' ' + string
+#   end
+# end
+
+# def player_attack_grid
+#   puts '   1 2 3 4 5 6 7 8 9 10'
+
+#   @cpu_board.each do |key, row|
+#     string = ''
+#     row.each do |v|
+#       if v == "H"
+#         string += ' *'
+#       elsif v == "w"
+#         string += ' ~'
+#       else
+#         string += ' .'
+#       end
+#     end
+
+#     puts key.to_s + ' ' + string
+#   end
+# end
 
 @carrier = 5
 @battleship = 4
