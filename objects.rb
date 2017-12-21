@@ -60,7 +60,7 @@ def player_attack_grid
 end
 
 @carrier = 0
-@battleship = 0
+@battle = 0
 @cruiser = 0
 @patrol = 0
 @sub = 0
